@@ -18,7 +18,7 @@ To put it simply - `R` is the actual programming language, RStudio is a convenie
 
 ### Benefits of R
 
-First, `R` is both __open source__ and __free__. This allows you to take the tool and the skills you've learned with you wherever you go; you are not dependent on your employer to buy or have a license of a particular software. This is especially relevant as many other software with similar functionality often cost hundreds, if not thousands, of dollars for a single license. 
+First, `R` is both __open source__ and __free__. This allows you to take the tools and the skills you've learned with you wherever you go; you are not dependent on your employer to buy or have a license of a particular software. This is especially relevant as many other software with similar functionality often cost hundreds, if not thousands, of dollars for a single license. 
 
 The open source nature of `R` has also resulted in a robust set of users across a wide variety of disciplines who are constantly updating and revising the language. R therefore has some of the most up-to-date and innovative functionality and methods available to its users, should they know where to look. 
 
