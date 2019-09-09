@@ -44,7 +44,6 @@ __Try this!__ Using R, solve:
 (5 + 1) ^ 4 / (9 - 2) ^ 3
 
 ```{r 1_solve, echo = FALSE}
-
 ```
 
 ## Objects
@@ -122,7 +121,7 @@ __Note:__ The mean is exactly the same because there is no missing data in the `
 
 ### Object Types
 
-Object types are improtant in R and the type of an object is contingent on the attribute stored by the object. For example, an object storing characters (e.g., "blue") has a different type than an object storing a number (e.g., 1). Use of R functions is contingent on the type of objects. For example, functions like `mean()` work only for objects containing numbers. The R `str()` function describes the structure of objects and functions.
+Object types are important in R and the type of an object is contingent on the attribute stored by the object. For example, an object storing characters (e.g., "blue") has a different type than an object storing a number (e.g., 1). Use of R functions is contingent on the type of objects. For example, functions like `mean()` work only for objects containing numbers. The R `str()` function describes the structure of objects and functions.
 
 ```{r 1_structure, echo = TRUE}
 str(mean)
