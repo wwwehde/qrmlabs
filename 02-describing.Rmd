@@ -1,3 +1,29 @@
+```{r, include = FALSE } 
+ds <- read.csv("https://github.com/ripberjt/qrmlabs/raw/master/Class%20Data%20Set%20Factored.csv", header = TRUE)
+options(scipen=999)
+
+library(car)
+library(reshape2)
+library(descr)
+library(psych)
+library(tidyverse)
+library(skimr)
+library(memisc)
+library(stargazer)
+library(MASS)
+library(pscl)
+library(broom)
+library(sandwich)
+library(zeligverse)
+library(plotly)
+library(vcd)
+library(HistData)
+library(sfsmisc)
+library(interplot)
+library(DAMisc)
+
+getwd()
+```
 # Formatting, Describing, and Visualizing Data
 
 This lab discusses the basics of formatting, describing, and visualizing data. The following packages are required for this lab: 
@@ -585,6 +611,9 @@ ggplot(ds, aes(age)) +
 Last, a box plot can be generated via the `boxplot()` function. Technically a box plot in `ggplot2` requires both an x and y value, so simply indiciate `""` for the x portion of the aesthetic. 
 
 ```{r 2_box, echo = TRUE, fig.width = 4, fig.height = 3, fig.align = 'center'}
-ggplot(ds, aes(x = "", y = age)) +
-  geom_boxplot()
+ds %>%
+  drop_na(gender) %>%
+  ggplot(., aes(x = "", y = age, group = gender)) +
+  geom_boxplot()+
+  xlab("Gender")
 ```

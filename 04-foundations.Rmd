@@ -1,3 +1,29 @@
+```{r, include = FALSE } 
+ds <- read.csv("https://github.com/ripberjt/qrmlabs/raw/master/Class%20Data%20Set%20Factored.csv", header = TRUE)
+options(scipen=999)
+
+library(car)
+library(reshape2)
+library(descr)
+library(psych)
+library(tidyverse)
+library(skimr)
+library(memisc)
+library(stargazer)
+library(MASS)
+library(pscl)
+library(broom)
+library(sandwich)
+library(zeligverse)
+library(plotly)
+library(vcd)
+library(HistData)
+library(sfsmisc)
+library(interplot)
+library(DAMisc)
+
+getwd()
+```
 # Foundations for Inference
 
 This lab introduces the tools for the foundation of inference by examining the normal distribution, standard errors, confidence errors, and single sample t-tests. The following packages are required:
@@ -286,11 +312,11 @@ To calculate the two-sided p value under the t distribution:
 
 ```
 
-The returned p-value is less than $\alpha$ = 0.05, rejecting $H_0$: $\mu$ = 60. Put another way, $H_1$:  
-$\mu \neq 60$.
+The returned p-value is less than $\alpha$ = 0.05, rejecting $H_0$: $\mu$ = 58. Put another way, $H_1$:  
+$\mu \neq 58$.
 
 ```{r 4_t test4, echo=TRUE}
 t.test(ds$age, mu = 58)
 ```
 
-With 95% confidence, $\mu \neq 60$
+With 95% confidence, $\mu \neq 58$

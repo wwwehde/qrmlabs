@@ -1,3 +1,30 @@
+
+
+```{r, include = FALSE } 
+ds <- read.csv("https://github.com/ripberjt/qrmlabs/raw/master/Class%20Data%20Set%20Factored.csv", header = TRUE)
+options(scipen=999)
+
+library(car)
+library(reshape2)
+library(descr)
+library(psych)
+library(tidyverse)
+library(skimr)
+library(memisc)
+library(stargazer)
+library(MASS)
+library(pscl)
+library(broom)
+library(sandwich)
+library(zeligverse)
+library(plotly)
+library(vcd)
+library(HistData)
+library(sfsmisc)
+library(interplot)
+library(DAMisc)
+```
+
 # Visualizing Data, Probability, the Normal Distribution, and Z Scores
 
 This lab discusses the basics of visualizing data, probability, the normal distribution, and z scores. The following packages are required for this lab: 
