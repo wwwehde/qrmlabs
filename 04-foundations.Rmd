@@ -2,25 +2,17 @@
 ds <- read.csv("https://github.com/ripberjt/qrmlabs/raw/master/Class%20Data%20Set%20Factored.csv", header = TRUE)
 options(scipen=999)
 
+install.packages("car")
+install.packages("psych")
+install.packages("sm")
+install.packages("HistData")
+install.packages("tidyverse")
+
 library(car)
-library(reshape2)
-library(descr)
 library(psych)
-library(tidyverse)
-library(skimr)
-library(memisc)
-library(stargazer)
-library(MASS)
-library(pscl)
-library(broom)
-library(sandwich)
-library(zeligverse)
-library(plotly)
-library(vcd)
+library(sm)
 library(HistData)
-library(sfsmisc)
-library(interplot)
-library(DAMisc)
+library(tidyverse)
 
 getwd()
 ```
@@ -59,7 +51,7 @@ The QQ plot of the `random` object demonstrates the data closely follows a norma
 3. Kolmogorov-Smirnov test
 4. Pearson's Chi-Squared test
 
-The Shapiro-Wilk test is the most popular method, as the test has been demonstrate as providing the most power for a given significance.
+The Shapiro-Wilk test is the most popular method, as the test has been demonstrated as providing the most power for a given significance.
 
 ### Shapiro-Wilk Test
 

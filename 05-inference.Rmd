@@ -1,3 +1,26 @@
+```{r, include = FALSE } 
+ds <- read.csv("https://github.com/ripberjt/qrmlabs/raw/master/Class%20Data%20Set%20Factored.csv", header = TRUE)
+options(scipen=999)
+
+#install.packages("car")
+#install.packages("psych")
+#install.packages("vcd")
+#install.packages("reshape2")
+#install.packages("tidyverse")
+#install.packages("skimr")
+
+installed.packages()
+
+library(car)
+library(psych)
+library(vcd)
+library(reshape2)
+library(tidyverse)
+library(skimr)
+
+getwd()
+```
+
 # Inference for Two Populations
 
 This lab covers the basics of inference for two populations. We go through proportions and cross tabulations; the different types of two sample t-tests; difference in one and two tailed tests; and how to plot means and the differences between means. The following packages are required for this lab: 
@@ -49,6 +72,7 @@ Alternatively, we can use the `describe()` function to avoid rounding errors:
 
 ```{r 5_prop5, echo=TRUE}
 se.gcc <- describe(ds$glbcc)$se
+
 se.gcc
 ```
 
@@ -72,7 +96,7 @@ First store the standard error as an object:
 se.gcc <- se.gcc <- describe(ds$glbcc)$se
 ```
 
-Recall that the `mutate()` verb can be used to create multiple variables at once. With this in mind, we can easily create a data frame that contains the measurements of interest, the standard error, and the lower and upper bounds of the confidence interval. For a 95% confidence interval, you take the proportion, plus or minus 1.96 mulipltied by the standard error. Inside the `mutate()` function create three new variables: the standard error, lower, and upper:
+Recall that the `mutate()` verb can be used to create multiple variables at once. With this in mind, we can easily create a data frame that contains the measurements of interest, the standard error, and the lower and upper bounds of the confidence interval. For a 95% confidence interval, you take the proportion, plus or minus 1.96 multiplied by the standard error. Inside the `mutate()` function create three new variables: the standard error, lower, and upper:
 
 ```{r 5_prop71, echo=TRUE}
 new.ds <- ds %>%
@@ -255,7 +279,7 @@ We need to compare variances for Democrats and Republicans on their risk percept
 
 ```{r 5_ind2, echo=TRUE}
 skim_with(numeric = list(hist = NULL))
-skim_with(ingerger = list(hist = NULL))
+skim_with(integer = list(hist = NULL))
 ds %>%
   group_by(f.part) %>%
   skim(glbcc_risk) 
@@ -273,13 +297,14 @@ leveneTest(ds$glbcc_risk, ds$f.part)
 Given the p-value < $\alpha$ = 0.05, we reject the null hypothesis such that there is a statistically significant difference in variances. With this result we can perform an independent t-test for two populations. The framework for forming hypotheses is as follows:
 
 -$H_0$: the two populations are indifferent; "there is no difference in perceived risk of climate change between Democrats and Republicans"
+
 -$H_1$: the two populations are different; "there is a difference in perceived risk of climate change between Democrats and Republicans"
 
 ```{r 5_ind4, echo=TRUE}
 t.test(ds$glbcc_risk ~ ds$f.part, var.equal = FALSE) # var.equal=FALSE is default
 ```
 
-Given the p-value < $\alpha$ = 0.05, we reject the null hypothesis such that there is a statistically significant difference in perceived risk of climate change between democrats and republicans.
+Given the p-value < $\alpha$ = 0.05, we reject the null hypothesis. This suggests that there is a statistically significant difference in perceived risk of climate change between Democrats and Republicans.
 
 The previous test is an example of a two-tailed test, which lacks directionality (greater than, less than). In contrast, a one-tailed t-test tests hypotheses that include direction. To perform a one-tailed t-test, we include the command alt="greater" inside the `t.test()` function:
 
